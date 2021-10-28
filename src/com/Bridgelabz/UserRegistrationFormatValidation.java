@@ -9,10 +9,11 @@ import java.util.regex.Pattern;
 
 public class UserRegistrationFormatValidation {
     public static final Scanner scanner = new Scanner(System.in);
+
     /*
     Created a method to validate first name
      */
-    public static void validFirstName(){
+    public static void validFirstName() {
         System.out.print("Enter the First Name : ");
         String name = scanner.next();
         String regex = "^[A-Z]{1}[a-z]{2,}$";
@@ -24,10 +25,11 @@ public class UserRegistrationFormatValidation {
         else
             System.out.println("First name is !Invalid");
     }
+
     /*
     Created a method to validate last name
      */
-    public static void validLastName(){
+    public static void validLastName() {
         System.out.print("Enter the Last Name : ");
         String lname = scanner.next();
 
@@ -41,10 +43,11 @@ public class UserRegistrationFormatValidation {
         else
             System.out.println("Last name is Invalid");
     }
+
     /*
     Created a method to validate Email Address
      */
-    public static void validEmailId(){
+    public static void validEmailId() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the Email Address : ");
         String email = scanner.next();
@@ -57,7 +60,8 @@ public class UserRegistrationFormatValidation {
         else
             System.out.println("Email Address is Invalid");
     }
-    public static void validMobileNumber(){
+
+    public static void validMobileNumber() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter your mobile number : ");
         String phoneNo = scanner.nextLine();
@@ -74,7 +78,7 @@ public class UserRegistrationFormatValidation {
     /*
      User need to enter a valid Password according to rule 1
      */
-    public static void validPassRule1(){
+    public static void validPassRule1() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the Password according to rule 1 : ");
         String passWord = scanner.nextLine();
@@ -91,7 +95,7 @@ public class UserRegistrationFormatValidation {
     /*
     Created a method to enter valid Password according to rule 2
     */
-    public static void validPassRule2(){
+    public static void validPassRule2() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the Password according to rule 2 : ");
         String passWord1 = scanner.nextLine();
@@ -100,6 +104,23 @@ public class UserRegistrationFormatValidation {
         Matcher m5 = p5.matcher(passWord1);
         boolean r5 = m5.matches();
         if (r5)
+            System.out.println("Password is Valid");
+        else
+            System.out.println("Password is Invalid");
+    }
+
+    /*
+    Created a method to enter valid Password according to rule 3
+    */
+    public static void validPassRule3() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the PassWord");
+        String passWord2 = scanner.nextLine();
+        String regex6 = "^[A-Z]{1}+[a-zA-Z].+[0-9].{8,}$";
+        Pattern p6 = Pattern.compile(regex6);
+        Matcher m6 = p6.matcher(passWord2);
+        boolean r6 = m6.matches();
+        if (r6)
             System.out.println("Password is Valid");
         else
             System.out.println("Password is Invalid");
