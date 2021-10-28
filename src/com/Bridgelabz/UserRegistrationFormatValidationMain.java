@@ -11,6 +11,7 @@ public class UserRegistrationFormatValidationMain {
         System.out.println("Enter 1 : to validate First Name ");
         System.out.println("Enter 2 : to validate Last Name ");
         System.out.println("Enter 3 : to validate E-mail Address ");
+        System.out.println("Enter 4 : to validate Mobile Number ");
         switch (scanner.nextInt()){
             case 1:
                 UserRegistrationFormatValidation.validFirstName();
@@ -21,9 +22,11 @@ public class UserRegistrationFormatValidationMain {
             case 3:
                 UserRegistrationFormatValidation.validEmailId();
                 break;
+            case 4:
+                UserRegistrationFormatValidation.validMobileNumber();
+                break;
             default:
                 System.out.println("Select a valid number");
         }
     }
 }
-
