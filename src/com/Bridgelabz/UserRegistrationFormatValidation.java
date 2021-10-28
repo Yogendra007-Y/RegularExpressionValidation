@@ -70,4 +70,21 @@ public class UserRegistrationFormatValidation {
         else
             System.out.println("Phone number is Invalid");
     }
+
+    /*
+     User need to enter a valid Password according to rule 1
+     */
+    public static void validPassRule1(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the Password according to rule 1 : ");
+        String passWord = scanner.nextLine();
+        String regex4 = "^[A-Z a-z 0-9]{8,}$";
+        Pattern p4 = Pattern.compile(regex4);
+        Matcher m4 = p4.matcher(passWord);
+        boolean r4 = m4.matches();
+        if (r4)
+            System.out.println("Password is Valid");
+        else
+            System.out.println("Password is Invalid");
+    }
 }

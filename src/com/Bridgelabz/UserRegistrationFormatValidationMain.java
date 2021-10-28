@@ -25,6 +25,9 @@ public class UserRegistrationFormatValidationMain {
             case 4:
                 UserRegistrationFormatValidation.validMobileNumber();
                 break;
+            case 5:
+            UserRegistrationFormatValidation.validPassRule1();
+            break;
             default:
                 System.out.println("Select a valid number");
         }
