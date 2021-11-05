@@ -45,4 +45,13 @@ public class UserRegistrationTest {
         boolean result = userRegistration.loginValidation("Asjspnm");
         Assert.assertFalse(result);
     }
+    @Test
+    public void givenRule2Value_WhenProper_ShouldReturnTrue(){
+        boolean result = userRegistration.loginValidation2("Logaqaaopnm");
+        Assert.assertTrue(result);
+    }
+    @Test
+    public void givenRule2Values_WhenNotProper_ShouldReturnFalse(){
+        boolean result = userRegistration.loginValidation2("addqeghopnm");
+    }
 }
