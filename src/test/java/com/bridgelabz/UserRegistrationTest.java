@@ -4,74 +4,133 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class UserRegistrationTest {
-    UserRegistrationFormat userRegistration = new UserRegistrationFormat();
+    UserRegistration userRegistration = new UserRegistration();
+    /**
+     * Unit test for validating first name
+     */
     @Test
-    public void givenName_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.firstName("Yogendra");
-        Assert.assertTrue(result);
+    public void givenFirstName_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.firstName("Utkarsh");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenFirstName_WhenNotProper_ShouldReturnFlase() {
+        boolean result = userRegistration.firstName("utkarsh");
+        Assert.assertEquals(false, result);
+    }
+    /**
+     * Unit test for validating last name
+     */
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.lastName("Mishra");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenLastName_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.lastName("mishra");
+        Assert.assertEquals(false, result);
+
+    }
+    /**
+     * Unit test for validating email address
+     */
+    @Test
+    public void givenEmail_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.email("abc@gmail.com.com");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenEmail_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.email("abc()*@gmail.com");
+        Assert.assertEquals(false, result);
+    }
+
+    /**
+     * Unit test for validating format of mobile number
+     */
+    @Test
+    public void givenPhoneNumber_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.phoneNumber("91 7844999888");
+        Assert.assertEquals(true, result);
+    }
+
+    @Test
+    public void givenPhoneNumber_WhenNotProper_ShouldReturnFlase() {
+        boolean result = userRegistration.phoneNumber("+91 7844999888");
+        Assert.assertEquals(false, result);
+    }
+
+    /**
+     * Unit test for validating password with minimum 8 character
+     */
+    @Test
+    public void givenPassword_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.password("password");
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void giveLastName_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.lastName("Sharma");
-        Assert.assertTrue(result);
+    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.password("psw@");
+        Assert.assertEquals(false, result);
+    }
+
+    /**
+     * Unit test for validating password with atleast one upper case
+     */
+    @Test
+    public void givenPasswordRule2_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.passwordRule2("passWord");
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void giveEmailVaule_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.emailValidation("abc@gmail.com");
-        Assert.assertTrue(result);
+    public void givenPasswordRule2_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.passwordRule2("psw@");
+        Assert.assertEquals(false, result);
+    }
+
+    /**
+     * Unit test for validating password with atleast one numeric number
+     */
+    @Test
+    public void givenPasswordRule3_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.passwordRule3("123Aab123");
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void giveEmailValues_WhenNotProper_ShouldReturnFalse(){
-        boolean result = userRegistration.emailValidation("abc..@yahoo.com");
-        Assert.assertFalse(result);
+    public void givenPasswordRule3_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.passwordRule3("123456789");
+        Assert.assertEquals(false, result);
+    }
+
+    /**
+     * Unit test for validating password with exactly one special character
+     */
+    @Test
+    public void givenPasswordRule4_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.passwordRule4("1234@Abc");
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void giveNumberValue_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.numberValidation("10 1234567890");
-        Assert.assertTrue(result);
+    public void givenPasswordRule4_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.passwordRule4("akdj@ds@A");
+        Assert.assertEquals(false, result);
+    }
+
+    /**
+     * Unit test for validating email sequence
+     */
+    @Test
+    public void givenEmail1_WhenProper_ShouldReturnTrue() {
+        boolean result = userRegistration.emailIdValidator("abc.100@abc.com.au");
+        Assert.assertEquals(true, result);
     }
     @Test
-    public void givenNumberValues_WhenNotProper_ShouldReturnFalse(){
-        boolean result = userRegistration.numberValidation("11 08450911888");
-        Assert.assertFalse(result);
-    }
-    @Test
-    public void giveLoginValue_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.loginValidation("Asbmsopnm");
-        Assert.assertTrue(result);
-    }
-    @Test
-    public void givenLoginValues_WhenNotProper_ShouldReturnFalse() {
-        boolean result = userRegistration.loginValidation("Asjspnm");
-        Assert.assertFalse(result);
-    }
-    @Test
-    public void givenRule2Value_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.loginValidation2("Logaqaaopnm");
-        Assert.assertTrue(result);
-    }
-    @Test
-    public void givenRule2Values_WhenNotProper_ShouldReturnFalse(){
-        boolean result = userRegistration.loginValidation2("addqeghopnm");
-    }
-    @Test
-    public void givenRule3Value_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.loginRule3Validation("Laoqo1rpnm");
-        Assert.assertTrue(result);
-    }
-    @Test
-    public void givenRule3Values_WhenNotProper_ShouldReturnFalse(){
-        boolean result = userRegistration.loginRule3Validation("aqLawhrpnm");
-        Assert.assertFalse(result);
-    }
-    @Test
-    public void givenRule4Values_WhenProper_ShouldReturnTrue(){
-        boolean result = userRegistration.loginRule4Validation("adqe1aaL@fp");
-        Assert.assertTrue(result);
-    }
-    @Test
-    public void givenRule4Values_WhenNotProper_ShouldReturnFalse(){
-        boolean result = userRegistration.loginRule4Validation("awwfleropnm");
-        Assert.assertFalse(result);
+    public void givenEmail1_WhenNotProper_ShouldReturnFalse() {
+        boolean result = userRegistration.emailIdValidator("abc()*@gmail.com");
+        Assert.assertEquals(false, result);
     }
 }
